@@ -6,48 +6,89 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Document</title>
 </head>
+<style>
+      h1 {
+            background-color: #90e0ff;
+            text-align: left;
+            color: #1900ff;
+      }
+
+      .abc {
+            height: 50px;
+      }
+
+      fieldset {
+            margin: 0px 34%;
+            border-style: none;
+            background-color: #fffa9d;
+
+      }
+
+      th {
+            width: 100px;
+            text-align: left;
+            color: blue;
+      }
+
+      select {
+            width: 140px;
+      }
+</style>
 
 <body>
-      <table>
-            <tr>
-                  <th>Họ và tên</th>
-                  <td><input type="text"> </td>
-            </tr>
-            <tr>
-                  <th>Ngày sinh</th>
-                  <td><input type="text"> </td>
-            </tr>
-            <tr>
-                  <th>Giới tính</th>
-                  <td>
-                        <input type="radio">nam
-                        <input type="radio">nữ
-                  </td>
-            </tr>
-            <tr>
-                  <th>Địa chỉ</th>
-                  <td><input type=""> </td>
-            </tr>
-            <tr>
-                  <th>3</th>
-                  <td><input type=""> </td>
-            </tr>
-            <tr>
-                  <th>3</th>
-                  <td><input type="text"> </td>
-            </tr>
-            <tr>
-                  <th>3</th>
-                  <td><input type="text"> </td>
-            </tr>
-            <tr>
-                  <th>3</th>
-                  <td><input type=""> </td>
-            </tr>
+      <fieldset>
+            <h1>ĐĂNG KÝ HỌC VIÊN</h1>
+            <table>
+                  <tr>
+                        <th>Họ và tên</th>
+                        <td><input type="text"> </td>
+                  </tr>
+                  <tr>
+                        <th>Ngày sinh</th>
+                        <td><input type="text"> </td>
+                  </tr>
+                  <tr>
+                        <th>Giới tính</th>
+                        <td>
+                              <input type="radio">Nam
+                              <input type="radio">Nữ
+                        </td>
+                  </tr>
+                  <tr>
+                        <th style="vertical-align: text-top;">Địa chỉ</th>
+                        <td><input type="text" class="abc"> </td>
+                  </tr>
+                  <tr>
+                        <th>Lớp</th>
+                        <td>
+                              <select>
+                                    <option>--Chọn lớp--</option>
+                                    <option>2B</option>
+                                    <option>3B</option>
+                              </select>
+                        </td>
+                  </tr>
+                  <tr>
+                        <th>Email</th>
+                        <td><input type="text"> </td>
+                  </tr>
+                  <tr>
+                        <th>Điện thoại</th>
+                        <td><input type="text"> </td>
+                  </tr>
+                  <tr>
+                        <th></th>
+                        <td>
+                              <input type="submit" value="Đăng ký">
+                              <input type="submit" value="Nhập lại">
+                        </td>
+                  </tr>
 
 
 
-      </table>
+            </table>
+      </fieldset>
+
 </body>
 
 </html>
