@@ -14,42 +14,71 @@
       }
 
       .abc {
-            width: 50%;
-            margin-left: 5%;
+            width: 30%;
+            text-align: end;
       }
 
       fieldset {
-            margin: 0px 20%;
+            margin: 0px 34%;
+            border-style: solid;
             border-color: aqua;
+            border-width: 20px;
+      }
+
+      th {
+            text-align: left;
       }
 </style>
 
 <body>
       <fieldset>
             <h1>Sở thích của tôi</h1>
-            <label>Học và Tên</label>
-            <input class="abc" type="text" name="abc">
-            <br><br>
-            <label style="text-align: end; width: 100px;">Email </label>
-            <input class=" abc" type="email" name="def">
-            <br><br>
-            <label>Sở thích</label>
+            <table style="width: 100%;">
+                  <tr>
+                        <th class="abc">Học và tên</th>
+                        <th><input type="text" name="name"></th>
+                  </tr>
+                  <tr>
+                        <th class="abc">Email</th>
+                        <th><input type="email" name="def"></th>
+                  </tr>
+                  <tr>
+                        <th class="abc">Sở thích</th>
+                        <th style="color: red;">
+                              <input type="checkbox">Thể Thao
+                              <input type="checkbox">Âm Nhạc
+                              <input type="checkbox">Đọc Sách
 
-            <input type="checkbox">Thể Thao
-            <input type="checkbox">Âm Nhạc
-            <input type="checkbox">Đọc Sách
-            <input type="checkbox">Lướt Web
-            <input type="checkbox">Chơi game
-            <input type="checkbox">Điện Ảnh
-            <input type="checkbox">Du lịch
+                        </th>
+                  </tr>
+                  <tr>
+                        <th></th>
+                        <th style="color: red;">
 
-            <form>
-                  <input type="button" value="Gửi thông tin">
-                  <input type="button" value="Nhập lại">
-            </form>
+                              <input type="checkbox">Lướt Web
+                              <input type="checkbox">Chơi game
+                              <input type="checkbox">Điện Ảnh
+                        </th>
+                  </tr>
+                  <tr>
+                        <th></th>
+                        <th style="color: red;">
+                              <input type="checkbox">Du lịch
+                        </th>
+                  </tr>
+                  <tr>
+                        <th></th>
+                        <th>
+                              <input type="button" value="Gửi thông tin">
+                              <input type="button" value="Nhập lại">
+                        </th>
+                  </tr>
 
+            </table>
 
       </fieldset>
+
+
 </body>
 
 </html>
