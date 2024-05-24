@@ -6,9 +6,65 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Document</title>
 </head>
+<style>
+      table,
+      input,
+      select {
+            width: 90%;
+      }
+</style>
 
 <body>
 
+      <table>
+            <tr>
+                  <th>Amount</th>
+                  <th>From Currency</th>
+                  <th>To Currency</th>
+                  <th></th>
+            </tr>
+            <tr>
+                  <td>
+                        <input type="text" name="Amount-name">
+                  </td>
+                  <td>
+                        <select class="Fcur">
+                              <option value="VietNam" name="VietNam-Fcur">VietNam</option>
+                              <option value="USD" name="USD-Fcur">USD</option>
+                              <option value="Yen" name="Yen-Fcur">Yên</option>
+                        </select>
+                  </td>
+
+                  <td>
+                        <select class="Tcur">
+                              <option value="VietNam" name="VietNam-Tcur">VietNam</option>
+                              <option value="USD" name="USD-Tcur">USD</option>
+                              <option value="Yen" name="Yen-Tcur">Yên</option>
+                        </select>
+                  </td>
+                  <td>
+                        <input type="button" onclick="Convert()" value="Convert">
+                  </td>
+            </tr>
+      </table>
+      <div id="abc1"></div>
+      <div id="abc2"></div>
+      <div id="abc3"></div>
+
+
 </body>
+<script>
+      var Tcur = document.getElementById('Tcur')
+      var Fcur = document.getElementById('Fcur')
+      var Amount = document.getElementsByTagName('Amount-name')
+      var abc1 = document.getElementById('abc1')
+      var abc2 = document.getElementById('abc2')
+      var abc3 = document.getElementById('abc3')
+      function Convert() {
+            abc1.innerHTML = Amount.value
+            abc2.innerHTML = Tcur.value
+            abc3.innerHTML = Fcur.value
+      }
+</script>
 
 </html>
