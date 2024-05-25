@@ -25,21 +25,21 @@
             </tr>
             <tr>
                   <td>
-                        <input type="text" name="Amount-name">
+                        <input type="text" id="Amount-name" name="Amount-name">
                   </td>
                   <td>
-                        <select class="Fcur">
-                              <option value="VietNam" name="VietNam-Fcur">VietNam</option>
-                              <option value="USD" name="USD-Fcur">USD</option>
-                              <option value="Yen" name="Yen-Fcur">Yên</option>
+                        <select id="Fcur">
+                              <option value="VietNam">VietNam</option>
+                              <option value="USD">USD</option>
+                              <option value="Yen">Yên</option>
                         </select>
                   </td>
 
                   <td>
-                        <select class="Tcur">
-                              <option value="VietNam" name="VietNam-Tcur">VietNam</option>
-                              <option value="USD" name="USD-Tcur">USD</option>
-                              <option value="Yen" name="Yen-Tcur">Yên</option>
+                        <select id="Tcur">
+                              <option value="VietNam">VietNam</option>
+                              <option value="USD">USD</option>
+                              <option value="Yen">Yên</option>
                         </select>
                   </td>
                   <td>
@@ -56,14 +56,42 @@
 <script>
       var Tcur = document.getElementById('Tcur')
       var Fcur = document.getElementById('Fcur')
-      var Amount = document.getElementsByTagName('Amount-name')
+      var Amount = document.getElementById('Amount-name')
+
       var abc1 = document.getElementById('abc1')
       var abc2 = document.getElementById('abc2')
       var abc3 = document.getElementById('abc3')
       function Convert() {
-            abc1.innerHTML = Amount.value
-            abc2.innerHTML = Tcur.value
-            abc3.innerHTML = Fcur.value
+            if (Fcur.value == Tcur.value) {
+                  abc1.innerHTML = 'So tien sau khi quy doi la : ' + Amount.value + Tcur.value
+            } else {
+                  if (Fcur.value == 'VietNam') {
+                        if (Tcur.value == 'USD') {
+                              abc1.innerHTML = 'So tien sau khi quy doi la : ' + Amount.value * 0.0000392624 + Tcur.value
+                        } else {
+                              abc1.innerHTML = 'So tien sau khi quy doi la : ' + Amount.value * 0.00616419 + Tcur.value
+                        }
+                  }
+
+                  if (Fcur.value == 'USD') {
+                        if (Tcur.value == 'VietNam') {
+                              abc1.innerHTML = 'So tien sau khi quy doi la : ' + Amount.value * 25.47 + Tcur.value
+                        } else {
+                              abc1.innerHTML = 'So tien sau khi quy doi la : ' + Amount.value * 157 + Tcur.value
+                        }
+                  }
+
+                  if (Fcur.value == 'Yen') {
+                        if (Tcur.value == 'USD') {
+                              abc1.innerHTML = 'So tien sau khi quy doi la : ' + Amount.value * 0.006369 + Tcur.value
+                        } else {
+                              abc1.innerHTML = 'So tien sau khi quy doi la : ' + Amount.value * 0.162227 + Tcur.value
+                        }
+                  }
+                  // abc2.innerHTML = Fcur.value
+                  // abc3.innerHTML = Tcur.value
+                  //'So tien sau khi quy doi la' +
+            }
       }
 </script>
 
