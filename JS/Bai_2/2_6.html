@@ -9,7 +9,7 @@
 
 <body>
       <label>Caculator
-            <input type="number" id="num1">
+            <input type="text" id="num1">
             <input type="number" id="num2">
             <button id="ab+" onclick="Result1()">Addition(+)</button>
             <button id="ab-" onclick="Result2()">Subtraction(-)</button>
@@ -43,8 +43,8 @@
       // });
       function Result1() {
 
-            a = parseInt(num1.value) + parseInt(num2.value)
-            abc.innerHTML = num1.value
+            a = parseFloat(num1.value) + parseInt(num2.value)
+            abc.innerHTML = a
       }
       function Result2() {
             a = parseInt(num1.value) - parseInt(num2.value)
