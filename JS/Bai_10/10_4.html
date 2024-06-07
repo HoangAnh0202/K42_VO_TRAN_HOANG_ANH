@@ -17,6 +17,10 @@
             width: 300px;
       }
 
+      .abc {
+            background-color: red;
+            color: white;
+      }
 
       /* .container_swap {
             width: 900px;
@@ -38,18 +42,18 @@
 <body>
       <fieldset>
             <h1>Add New Product</h1>
-            <input class="newProduct" type="text" placeholder="New Product">
-            <input type="button" class="addProduct" value="Add">
+            <input class="newProductClass" id="newProductId" type="text" placeholder="New Product">
+            <input type="button" onclick="addProduct_onclick()" class="addProduct" value="Add">
       </fieldset>
       <br>
-      <!-- <Fieldset>
+      <Fieldset>
             <h1>Display All Product</h1>
-
             <div class="container_swap">
                   <div class="div_left">
                         <h3>Product Name</h3>
                   </div>
-                   <div class="div_right"> 9 Product</div> 
+                  <div id="div_right"> </div>
+
             </div>
             <table>
                   <tr>
@@ -57,11 +61,69 @@
                         <th>Name</th>
                         <th>Delete</th>
                         <th>Edit</th>
+
                   </tr>
+                  <tr>
+                        <th>STT</th>
+                        <th>Name</th>
+                        <th><input type="button" value="Delete" id="" onclick="Delete_onclick()"></th>
+                        <th>Edit</th>
+                  </tr>
+
+                  <table id="todo-list"></table>
             </table>
-      </Fieldset> -->
-      <script src="./10_4js.js">
-      </script>
+      </Fieldset>
+
 </body>
+<script>
+      var listProduct = [1, 2, 3, 4, 5, 9]
+      var listNum = listProduct.length
+
+      const addProduct = document.getElementsByClassName("addProduct")
+      const todolist = document.getElementById('todo-list')
+      const div_right = document.getElementById('div_right')
+      const newProductId = document.getElementById("newProductId")
+
+
+      function addProduct_onclick() {
+            if (newProductId.value != '') { listProduct.push(newProductId.value) }
+            div_right.innerHTML = `${listProduct.length} Product`
+            todolist.innerHTML = ''
+
+            for (let i = 0; i < listProduct.length; i++) {
+                  const row = document.createElement('tr')
+                  row.innerHTML = `
+                        <th>${listProduct[i]}</th>
+                        <th>Name ${listProduct[i]}</th>
+                        <th><input type="button" class="abc" 
+                        value="Delete" id="${listProduct[i]}" 
+                        onclick="Delete_onclick()"></th>
+                        <th>Edit</th>
+      `
+                  todolist.appendChild(row)
+            }
+      };
+
+      function Delete_onclick(ev) {
+            text = ev.target.id
+            alert(text)
+      };
+
+      // todolist.addEventListener('click', function (ev) {
+
+      //       if (ev.target.getAttribute('class') == null) {
+      //             ev.target.classList.add('checked')
+      //       } else {
+      //             ev.target.classList.remove('checked')
+      //       }
+      //       if (ev.target.getAttribute('class') == 'close') {
+      //             console.log('closeoooooooooooo')
+      //             data.splice(ev, 1)
+      //             addTodo()
+      //             saveToStorage('todo', data)
+      //       }
+      // })
+
+</script>
 
 </html>
