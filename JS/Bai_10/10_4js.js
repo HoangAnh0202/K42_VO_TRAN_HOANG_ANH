@@ -1,4 +1,6 @@
-var listProduct = ['b', 'v', 'g', 'h', 'h', 'j', 't', 'd']
+var listProduct = [
+      1, 2, 3, 4, 5, 6, 7, 8
+]
 var listNum = listProduct.length
 
 const addProduct = document.getElementById('addProduct')
@@ -26,7 +28,7 @@ const abc = document.getElementById("abc")
 //       }
 // };
 addProduct.addEventListener("click", function () {
-      if (newProductId.value != '') { listProduct.push(newProductId.value) }
+      if (newProductId.value != '') { listProduct[i].push(newProductId.value) }
       div_right.innerHTML = `${listProduct.length} Product`
       todolist.innerHTML = ''
 
