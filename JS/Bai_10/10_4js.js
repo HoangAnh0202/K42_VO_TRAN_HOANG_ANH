@@ -1,6 +1,15 @@
 var listProduct = [
       1, 2, 3, 4, 5, 6, 7, 8
 ]
+var a = [
+      { id: 1, name: "sonny0" },
+      { id: 2, name: "sonny1" },
+      { id: 3, name: "sonny2" },
+      { id: 4, name: "sonny3" },
+      { id: 5, name: "sonny4" }
+]
+
+console.log(a[3].name)
 var listNum = listProduct.length
 
 const addProduct = document.getElementById('addProduct')
@@ -8,6 +17,17 @@ const todolist = document.getElementById('todo-list')
 const div_right = document.getElementById('div_right')
 const newProductId = document.getElementById("newProductId")
 const abc = document.getElementById("abc")
+
+for (let i = 0; i < a.length; i++) {
+      const row = document.createElement('tr')
+      row.innerHTML = `
+            <th>${i + 1}</th>
+            <th>Name ${a[i].name}</th>
+            <th><input type="button" id="abc" class="${a[i].id}" value="Delete"></th>
+            <th>Edit</th>
+`
+      todolist.appendChild(row);
+}
 
 // function addProduct_onclick() {
 //       if (newProductId.value != '') { listProduct.push(newProductId.value) }
@@ -45,7 +65,6 @@ addProduct.addEventListener("click", function () {
 });
 
 
-abc.addEventListener("click", function (ev) {
-      alert(ev.target.getAttribute("class") != null)
-
-});
+// abc.addEventListener("click", function (ev) {
+//       alert(ev.target.getAttribute("class"))
+// });
