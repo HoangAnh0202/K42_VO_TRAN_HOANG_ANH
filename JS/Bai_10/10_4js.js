@@ -9,7 +9,6 @@ var a = [
       { id: 5, name: "sonny4" }
 ]
 
-console.log(a[3].name)
 var listNum = listProduct.length
 
 const addProduct = document.getElementById('addProduct')
@@ -18,15 +17,33 @@ const div_right = document.getElementById('div_right')
 const newProductId = document.getElementById("newProductId")
 const abc = document.getElementById("abc")
 
-for (let i = 0; i < a.length; i++) {
-      const row = document.createElement('tr')
-      row.innerHTML = `
-            <th>${i + 1}</th>
-            <th>Name ${a[i].name}</th>
-            <th><input type="button" id="abc" class="${a[i].id}" value="Delete"></th>
-            <th>Edit</th>
-`
-      todolist.appendChild(row);
+
+displayData()
+function del(index) {
+      alert("You have remove " + listProduct[index]);
+      listProduct.splice(index, 1);
+      displayData();
+}
+
+function edit(index) {
+      alert("You have edit " + listProduct[index]);
+      var newName = prompt("Enter new Name");
+      listProduct[index] = newName;
+      displayData();
+}
+function displayData() {
+      todolist.innerHTML = ''
+      for (let i = 0; i < listProduct.length; i++) {
+            const row = document.createElement('tr')
+            row.innerHTML = `
+                  <th>${i + 1}</th>
+                  <th>Name ${listProduct[i]}</th>
+                  <th><input type="button" id="${listProduct[i]}" class="abc" onclick='del(${i})' value="Delete"></th>
+                  <th><input type="button" id="${listProduct[i]}" class="abc" onclick='edit(${i})' value="edit"></th>
+      `
+            todolist.appendChild(row);
+      }
+
 }
 
 // function addProduct_onclick() {
@@ -55,16 +72,60 @@ addProduct.addEventListener("click", function () {
       for (let i = 0; i < listProduct.length; i++) {
             const row = document.createElement('tr')
             row.innerHTML = `
-                  <th>${i + 1}</th>
-                  <th>Name ${listProduct[i]}</th>
-                  <th><input type="button" id="abc" class="${listProduct[i]}" value="Delete"></th>
-                  <th>Edit</th>
+            <th>${i + 1}</th>
+            <th>Name ${a[i].name}</th>
+            <th><input type="button" id="${a[i].id}" class="abc" onclick='del(${i})' value="Delete"></th>
+            <th>Edit</th>
 `
             todolist.appendChild(row);
       }
 });
+// function del() {
+//       alert('delete')
+//       alert(tar)
 
+// }
 
 // abc.addEventListener("click", function (ev) {
 //       alert(ev.target.getAttribute("class"))
+// });
+
+
+
+// Sets callbacks to the buttons and other elements in the list
+// refreshCallbacks();
+
+// function refreshCallbacks() {
+//       // Trigger event for new generated row/object
+//       removeBtns = $(removeBtns.selector);
+//       removeBtns.click(function () {
+//             var itemId = $(this).closest('tr').data('id');
+//             userList.remove('id', itemId);
+//       });
+
+//       // Re-set device of each select
+//       let deviceOptions = $('.deviceType');
+//       deviceOptions.each(function () {
+//             let parentSelect = $(this).closest('select').data('value');
+//             if (parentSelect === this.value) {
+//                   $(this).attr('selected', 'selected');
+//             }
+//       });
+
+//       // Add Datetime Picker
+//       $('.datetimepicker').datetimepicker({
+//             format: 'YYYY-MM-DD HH:mm:ss'
+//       });
+// }
+
+// // Add new blank row into tables if click button Add
+// addBtn.click(function () {
+//       userList.add({
+//             id: ++size,
+//             itemId: `#${size}`,
+//             name: "",
+//             born: "",
+//             joinAt: ""
+//       });
+//       refreshCallbacks();
 // });

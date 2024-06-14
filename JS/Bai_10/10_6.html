@@ -8,7 +8,51 @@
 </head>
 
 <body>
+      <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                  <a class="navbar-brand" href="https://web3s.net">Web3s</a>
+            </div>
+      </nav>
+      <div class="col-md-3"></div>
+      <div class="col-md-6 well">
+            <h3 class="text-primary">Remove Table Row Using JavaScript Source Code</h3>
+            <hr style="border-top:1px dotted #ccc;" />
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+                  <table class="table table-bordered">
+                        <thead class="alert-info">
+                              <tr>
+                                    <th>Name</th>
+                                    <th>Action</th>
+                              </tr>
+                        </thead>
+                        <tbody id="result"></tbody>
+                  </table>
+            </div>
+      </div>
       <script>
+            var members = ["Steve Roger", "NAtasha Romanof", "Bruce Banner", "Luke Cage", "Jessica Jones",];
+
+            displayData();
+
+            function removeRow(index) {
+                  alert("You have remove " + members[index]);
+                  members.splice(index, 1);
+                  displayData();
+            }
+
+            function displayData() {
+                  var table = "";
+                  for (var i = 0; i < members.length; i++) {
+                        table += "<tr>";
+                        table += "<td>" + members[i] + "</td>"
+                              + "<td><button class='btn btn-danger' onclick='removeRow(" + i + ")'><span class='glyphicon glyphicon-trash'></span> Remove</button></td>";
+                        table += "</tr>";
+
+                  }
+
+                  document.getElementById("result").innerHTML = table;
+            }
             //----------(1)----------
             // const a = prompt('nhap mot so bat ky!!!!!!!!')
             // function binhphuong() {
@@ -34,8 +78,8 @@
             // abc()
 
             //----------(4)----------
-            const a = prompt('nhap bat ky : ')
-            alert()
+            // const a = prompt('nhap bat ky : ')
+            // alert()
 
 
             //----------(5)----------
