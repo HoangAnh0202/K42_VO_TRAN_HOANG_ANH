@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+<style>
+      button,
+      .abc {
+            background-color: #63c061;
+            border: 0;
+      }
+
+      th {
+            width: 300px;
+      }
+
+      #abc {
+            background-color: red;
+            color: white;
+      }
+
+      /* .container_swap {
+            width: 900px;
+      }
+
+      .div_left {
+            width: 450px;
+            float: left;
+            text-align: center;
+      }
+
+      .div_right {
+            width: 450px;
+            float: left;
+            text-align: center;
+      } */
+</style>
+
+<body>
+      <fieldset>
+            <h1>Add New Product</h1>
+            <input class="newProductClass" id="newProductId" type="text" placeholder="New Product">
+            <input type="button" id="addProduct" value="Add">
+      </fieldset>
+      <br>
+      <Fieldset>
+            <h1>Display All Product</h1>
+            <div class="container_swap">
+                  <div class="div_left">
+                        <h3>Product Name</h3>
+                  </div>
+                  <div id="div_right"> </div>
+
+            </div>
+            <table>
+                  <tr>
+                        <th>STT</th>
+                        <th>Name</th>
+                        <th>Delete</th>
+                        <th>Edit</th>
+
+                  </tr>
+                  <tr>
+                        <th>STT</th>
+                        <th>Name</th>
+                        <th><input type="button" id="abc" class="4" value="Delete"></th>
+                        <th><button type="button">edit</button></th>
+                  </tr>
+
+                  <table id="todo-list"></table>
+            </table>
+      </Fieldset>
+      <script src="/JS/Bai_10/10_4js.js"></script>
+</body>
+
+</html>

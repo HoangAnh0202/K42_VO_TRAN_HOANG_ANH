@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+
+<body>
+      <script>
+            var chuoi = prompt('nhap chuoi!!!!!!!!')
+            var ketqua = 0
+            function isPalindrome() {
+                  for (let i = 0; i < chuoi.length; i++) {
+                        console.log(i, chuoi.length - 1 - i, chuoi[i], chuoi[chuoi.length - 1 - i])
+                        if (chuoi[i] == chuoi[chuoi.length - 1 - i]) {
+                              console.log(true, i, chuoi[i], chuoi[chuoi.length - 1 - i])
+                              ketqua = ketqua + 1
+                              console.log(ketqua)
+                        }
+                  }
+                  ketqua == chuoi.length ? alert('chuoi doi xung') : alert('chuoi bat doi xung')
+            }
+            isPalindrome()
+      </script>
+</body>
+
+</html>
