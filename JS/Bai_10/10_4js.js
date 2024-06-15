@@ -1,5 +1,9 @@
 var listProduct = [
-      1, 2, 3, 4, 5, 6, 7, 8
+      'Sony Xperia',
+      'Samsung Galaxy',
+      'Nokia 6',
+      'Xiaomi Redmi Note 4',
+      'Oppo A71',
 ]
 var a = [
       { id: 1, name: "sonny0" },
@@ -32,6 +36,7 @@ function edit(index) {
       displayData();
 }
 function displayData() {
+      div_right.innerHTML = `${listProduct.length} Product`
       todolist.innerHTML = ''
       for (let i = 0; i < listProduct.length; i++) {
             const row = document.createElement('tr')
@@ -39,93 +44,26 @@ function displayData() {
                   <th>${i + 1}</th>
                   <th>Name ${listProduct[i]}</th>
                   <th><input type="button" id="${listProduct[i]}" class="abc" onclick='del(${i})' value="Delete"></th>
-                  <th><input type="button" id="${listProduct[i]}" class="abc" onclick='edit(${i})' value="edit"></th>
+                  <th><input type="button" id="${listProduct[i]}" class="abcc" onclick='edit(${i})' value="edit"></th>
       `
             todolist.appendChild(row);
       }
 
 }
 
-// function addProduct_onclick() {
-//       if (newProductId.value != '') { listProduct.push(newProductId.value) }
-//       div_right.innerHTML = `${listProduct.length} Product`
-//       todolist.innerHTML = ''
-
-//       for (let i = 0; i < listProduct.length; i++) {
-//             const row = document.createElement('tr')
-//             row.innerHTML = `
-//                   <th>${listProduct[i]}</th>
-//                   <th>Name ${listProduct[i]}</th>
-//                   <th><input type="button" class="abc" 
-//                   value="Delete" id="${listProduct[i]}" 
-//                   "></th>
-//                   <th>Edit</th>
-// `
-//             todolist.appendChild(row)
-//       }
-// };
 addProduct.addEventListener("click", function () {
-      if (newProductId.value != '') { listProduct[i].push(newProductId.value) }
+      if (newProductId.value != '') { listProduct.push(newProductId.value) }
       div_right.innerHTML = `${listProduct.length} Product`
       todolist.innerHTML = ''
 
       for (let i = 0; i < listProduct.length; i++) {
             const row = document.createElement('tr')
             row.innerHTML = `
-            <th>${i + 1}</th>
-            <th>Name ${a[i].name}</th>
-            <th><input type="button" id="${a[i].id}" class="abc" onclick='del(${i})' value="Delete"></th>
-            <th>Edit</th>
+                  <th>${i + 1}</th>
+                  <th>Name ${listProduct[i]}</th>
+                  <th><input type="button" id="${listProduct[i]}" class="abc" onclick='del(${i})' value="Delete"></th>
+                  <th><input type="button" id="${listProduct[i]}" class="abc" onclick='edit(${i})' value="edit"></th>
 `
             todolist.appendChild(row);
       }
 });
-// function del() {
-//       alert('delete')
-//       alert(tar)
-
-// }
-
-// abc.addEventListener("click", function (ev) {
-//       alert(ev.target.getAttribute("class"))
-// });
-
-
-
-// Sets callbacks to the buttons and other elements in the list
-// refreshCallbacks();
-
-// function refreshCallbacks() {
-//       // Trigger event for new generated row/object
-//       removeBtns = $(removeBtns.selector);
-//       removeBtns.click(function () {
-//             var itemId = $(this).closest('tr').data('id');
-//             userList.remove('id', itemId);
-//       });
-
-//       // Re-set device of each select
-//       let deviceOptions = $('.deviceType');
-//       deviceOptions.each(function () {
-//             let parentSelect = $(this).closest('select').data('value');
-//             if (parentSelect === this.value) {
-//                   $(this).attr('selected', 'selected');
-//             }
-//       });
-
-//       // Add Datetime Picker
-//       $('.datetimepicker').datetimepicker({
-//             format: 'YYYY-MM-DD HH:mm:ss'
-//       });
-// }
-
-// // Add new blank row into tables if click button Add
-// addBtn.click(function () {
-//       userList.add({
-//             id: ++size,
-//             itemId: `#${size}`,
-//             name: "",
-//             born: "",
-//             joinAt: ""
-//       });
-//       refreshCallbacks();
-// });
