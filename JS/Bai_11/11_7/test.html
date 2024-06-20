@@ -4,7 +4,7 @@
 <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Mô hình chiếc điện thoại</title>
+      <title>Mô hình chiếc điện thoại với ứng dụng tin nhắn</title>
       <style>
             /* Định dạng cho toàn bộ trang */
             body {
@@ -38,18 +38,75 @@
                   border-radius: 20px;
                   overflow: hidden;
                   position: relative;
+                  display: flex;
+                  flex-direction: column;
             }
 
+            /* Loa và camera trên điện thoại */
+            .speaker,
+            .camera {
+                  position: absolute;
+                  width: 60px;
+                  height: 5px;
+                  background-color: #333;
+                  border-radius: 3px;
+                  top: 15px;
+                  left: 50%;
+                  transform: translateX(-50%);
+            }
+
+            .camera {
+                  width: 10px;
+                  height: 10px;
+                  border-radius: 50%;
+                  top: 35px;
+            }
 
             /* Nút nguồn */
             .power-button {
                   position: absolute;
                   width: 8px;
                   height: 60px;
-                  background-color: red;
+                  background-color: #333;
                   right: -10px;
                   top: 120px;
                   border-radius: 4px;
+                  z-index: 1;
+                  /* Đảm bảo nút nguồn hiển thị trên cùng */
+            }
+
+            /* Biểu tượng pin */
+            .battery {
+                  position: absolute;
+                  top: 10px;
+                  right: 10px;
+                  width: 50px;
+                  height: 20px;
+                  border: 2px solid #333;
+                  border-radius: 4px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-end;
+                  padding-right: 4px;
+                  background-color: #fff;
+                  z-index: 1;
+                  /* Đảm bảo biểu tượng pin hiển thị trên cùng */
+            }
+
+            .battery::before {
+                  content: '';
+                  width: 4px;
+                  height: 10px;
+                  background-color: #333;
+                  border-radius: 2px;
+                  margin-left: 2px;
+            }
+
+            .battery-level {
+                  width: 40px;
+                  height: 16px;
+                  background-color: green;
+                  border-radius: 2px;
             }
 
             /* Mô phỏng ứng dụng trên màn hình */
@@ -74,69 +131,8 @@
                   flex-wrap: wrap;
                   justify-content: center;
                   padding-top: 80px;
-            }
-
-            /* Biểu tượng pin */
-            .battery {
-                  position: absolute;
-                  top: 10px;
-                  right: 10px;
-                  width: 50px;
-                  height: 20px;
-                  border: 2px solid #333;
-                  border-radius: 4px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: flex-end;
-                  padding-right: 4px;
-                  background-color: #fff;
-            }
-
-            .battery::before {
-                  content: '';
-                  width: 4px;
-                  height: 10px;
-                  background-color: #333;
-                  border-radius: 2px;
-                  margin-left: 2px;
-            }
-
-            .battery-level {
-                  width: 40px;
-                  height: 16px;
-                  background-color: green;
-                  border-radius: 2px;
-            }
-
-
-            .battery-Number {
-                  position: absolute;
-                  top: 10px;
-                  right: 70px;
-                  width: 30px;
-                  height: 20px;
-                  border: 2px solid #333;
-                  border-radius: 4px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: flex-end;
-                  padding-right: 4px;
-                  background-color: #fff;
-            }
-
-            .battery-Name {
-                  position: absolute;
-                  top: 10px;
-                  right: 200px;
-                  width: 100px;
-                  height: 20px;
-                  border: 2px solid #333;
-                  border-radius: 4px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: flex-end;
-                  padding-right: 4px;
-                  background-color: #fff;
+                  z-index: 1;
+                  /* Đảm bảo lưới ứng dụng hiển thị trên cùng */
             }
 
             /* Giao diện ứng dụng tin nhắn */
@@ -146,12 +142,25 @@
                   height: 100%;
                   background-color: #e0e0e0;
                   padding: 10px;
+                  z-index: 1;
+                  /* Đảm bảo ứng dụng tin nhắn hiển thị trên cùng */
+            }
+
+            .messages-header {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-bottom: 10px;
             }
 
             .messages {
                   flex: 1;
                   overflow-y: auto;
                   margin-bottom: 10px;
+                  border: 1px solid #ccc;
+                  border-radius: 10px;
+                  padding: 10px;
+                  background-color: #f9f9f9;
             }
 
             .message {
@@ -193,21 +202,36 @@
             .input-area button:hover {
                   background-color: #0056b3;
             }
+
+            .close-button {
+                  padding: 5px 10px;
+                  background-color: #ff4c4c;
+                  color: white;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  font-size: 12px;
+            }
+
+            .close-button:hover {
+                  background-color: #e60000;
+            }
       </style>
 </head>
 
 <body>
       <div class="phone">
             <div class="screen">
-                  <div class="battery-Name">name DT</div>
-                  <div class="battery-Number" id="batteryNumber"></div>
+                  <div class="speaker"></div>
+                  <div class="camera"></div>
+                  <div class="power-button"></div> <!-- Thêm nút nguồn vào đây -->
                   <div class="battery">
                         <div class="battery-level" id="batteryLevel"></div>
                   </div>
-                  <div class="app-grid">
-                        <div class="app" onclick="openMessagesApp()">📩</div>
+                  <div class="app-grid" id="appGrid">
                         <!-- Tạo các ứng dụng -->
-                        <div class="app" onclick="alert('Ứng dụng 1')"></div>
+                        <div class="app" onclick="openMessagesApp()">📩</div>
+                        <!-- Các ứng dụng khác -->
                         <div class="app" onclick="alert('Ứng dụng 2')"></div>
                         <div class="app" onclick="alert('Ứng dụng 3')"></div>
                         <div class="app" onclick="alert('Ứng dụng 4')"></div>
@@ -215,22 +239,32 @@
                         <div class="app" onclick="alert('Ứng dụng 6')"></div>
                   </div>
                   <div class="messages-app" id="messagesApp">
+                        <div class="messages-header">
+                              <button class="close-button" onclick="closeMessagesApp()">Thoát</button>
+                              <h2>Tin nhắn</h2>
+                        </div>
                         <div class="messages" id="messages"></div>
                         <div class="input-area">
                               <input type="text" id="messageInput" placeholder="Nhập tin nhắn...">
                               <button onclick="sendMessage()">Gửi</button>
                         </div>
                   </div>
-
             </div>
-            <div class="power-button"></div>
       </div>
       <script>
-            const batteryLevel = document.getElementById('batteryLevel');
-            const batteryNumber = document.getElementById('batteryNumber')
-            const input = document.getElementById('messageInput');
-            const messagesContainer = document.getElementById('messages');
-            const messageElement = document.createElement('div');
+            // Đặt mức pin ban đầu
+            function setBatteryLevel(level) {
+                  const batteryLevel = document.getElementById('batteryLevel');
+                  batteryLevel.style.width = `${level}%`;
+                  if (level > 50) {
+                        batteryLevel.style.backgroundColor = 'green';
+                  } else if (level > 20) {
+                        batteryLevel.style.backgroundColor = 'orange';
+                  } else {
+                        batteryLevel.style.backgroundColor = 'red';
+                  }
+            }
+            setBatteryLevel(75); // Ví dụ: Đặt mức pin là 75%
 
             // Hiển thị ứng dụng tin nhắn và ẩn lưới ứng dụng
             function openMessagesApp() {
@@ -238,12 +272,21 @@
                   document.getElementById('messagesApp').style.display = 'flex';
             }
 
+            // Ẩn ứng dụng tin nhắn và hiển thị lưới ứng dụng
+            function closeMessagesApp() {
+                  document.getElementById('messagesApp').style.display = 'none';
+                  document.getElementById('appGrid').style.display = 'flex';
+            }
+
             // Gửi tin nhắn
             function sendMessage() {
+                  const input = document.getElementById('messageInput');
                   const message = input.value.trim();
                   if (message) {
+                        const messagesContainer = document.getElementById('messages');
 
                         // Tạo một phần tử tin nhắn mới
+                        const messageElement = document.createElement('div');
                         messageElement.classList.add('message', 'sent');
                         messageElement.textContent = message;
 
@@ -257,30 +300,6 @@
                         messagesContainer.scrollTop = messagesContainer.scrollHeight;
                   }
             }
-
-
-
-
-
-
-
-            // mức pin
-            function setBatteryLevel(level) {
-                  batteryLevel.style.width = `${level}%`;
-                  if (level > 50) {
-                        batteryLevel.style.backgroundColor = 'green';
-                  } else if (level > 20) {
-                        batteryLevel.style.backgroundColor = 'orange';
-                  } else {
-                        batteryLevel.style.backgroundColor = 'red';
-                  }
-                  batteryNumber.innerHTML = level;
-            }
-
-            // Ví dụ: Đặt mức pin là 75%
-            setBatteryLevel(100);
-
-
       </script>
 </body>
 
