@@ -1,0 +1,116 @@
+            /* Định dạng cho toàn bộ trang */
+            body {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100vh;
+                  margin: 0;
+                  background-color: #f0f0f0;
+                  font-family: Arial, sans-serif;
+            }
+
+            /* Khung điện thoại */
+            .phone {
+                  width: 350px;
+                  height: 700px;
+                  border: 12px solid #333;
+                  border-radius: 36px;
+                  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                  background-color: #000;
+                  position: relative;
+                  overflow: hidden;
+            }
+
+            /* Màn hình điện thoại */
+            .screen {
+                  width: 320px;
+                  height: 620px;
+                  background-color: #fff;
+                  margin: 20px auto;
+                  border-radius: 20px;
+                  overflow: hidden;
+                  position: relative;
+            }
+
+
+            /* Nút nguồn */
+            .power-button {
+                  position: absolute;
+                  width: 8px;
+                  height: 60px;
+                  background-color: red;
+                  right: -10px;
+                  top: 120px;
+                  border-radius: 4px;
+            }
+
+            /* Mô phỏng ứng dụng trên màn hình */
+            .app {
+                  width: 60px;
+                  height: 60px;
+                  background-color: #00aaff;
+                  margin: 10px;
+                  border-radius: 12px;
+                  display: inline-block;
+                  cursor: pointer;
+                  transition: transform 0.2s;
+            }
+
+            .app:active {
+                  transform: scale(0.9);
+            }
+
+            /* Lưới ứng dụng */
+            .app-grid {
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  padding-top: 80px;
+            }
+
+            /* Biểu tượng pin */
+            .battery {
+                  position: absolute;
+                  top: 10px;
+                  right: 10px;
+                  width: 50px;
+                  height: 20px;
+                  border: 2px solid #333;
+                  border-radius: 4px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-end;
+                  padding-right: 4px;
+                  background-color: #fff;
+            }
+
+            .battery::before {
+                  content: '';
+                  width: 4px;
+                  height: 10px;
+                  background-color: #333;
+                  border-radius: 2px;
+                  margin-left: 2px;
+            }
+
+            .battery-level {
+                  width: 40px;
+                  height: 16px;
+                  background-color: green;
+                  border-radius: 2px;
+            }
+
+            .battery-Number {
+                  position: absolute;
+                  top: 10px;
+                  right: 70px;
+                  width: 30px;
+                  height: 20px;
+                  border: 2px solid #333;
+                  border-radius: 4px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-end;
+                  padding-right: 4px;
+                  background-color: #fff;
+            }

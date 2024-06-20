@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Mô hình chiếc điện thoại</title>
+      <style>
+            /* Định dạng cho toàn bộ trang */
+            body {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100vh;
+                  margin: 0;
+                  background-color: #f0f0f0;
+                  font-family: Arial, sans-serif;
+            }
+
+            /* Khung điện thoại */
+            .phone {
+                  width: 350px;
+                  height: 700px;
+                  border: 12px solid #333;
+                  border-radius: 36px;
+                  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                  background-color: #000;
+                  position: relative;
+                  overflow: hidden;
+            }
+
+            /* Màn hình điện thoại */
+            .screen {
+                  width: 320px;
+                  height: 620px;
+                  background-color: #fff;
+                  margin: 20px auto;
+                  border-radius: 20px;
+                  overflow: hidden;
+                  position: relative;
+            }
+
+
+            /* Nút nguồn */
+            .power-button {
+                  position: absolute;
+                  width: 8px;
+                  height: 60px;
+                  background-color: red;
+                  right: -10px;
+                  top: 120px;
+                  border-radius: 4px;
+            }
+
+            /* Mô phỏng ứng dụng trên màn hình */
+            .app {
+                  width: 60px;
+                  height: 60px;
+                  background-color: #00aaff;
+                  margin: 10px;
+                  border-radius: 12px;
+                  display: inline-block;
+                  cursor: pointer;
+                  transition: transform 0.2s;
+            }
+
+            .app:active {
+                  transform: scale(0.9);
+            }
+
+            /* Lưới ứng dụng */
+            .app-grid {
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  padding-top: 80px;
+            }
+
+            /* Biểu tượng pin */
+            .battery {
+                  position: absolute;
+                  top: 10px;
+                  right: 10px;
+                  width: 50px;
+                  height: 20px;
+                  border: 2px solid #333;
+                  border-radius: 4px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-end;
+                  padding-right: 4px;
+                  background-color: #fff;
+            }
+
+            .battery::before {
+                  content: '';
+                  width: 4px;
+                  height: 10px;
+                  background-color: #333;
+                  border-radius: 2px;
+                  margin-left: 2px;
+            }
+
+            .battery-level {
+                  width: 40px;
+                  height: 16px;
+                  background-color: green;
+                  border-radius: 2px;
+            }
+
+            .battery-Number {
+                  position: absolute;
+                  top: 10px;
+                  right: 70px;
+                  width: 30px;
+                  height: 20px;
+                  border: 2px solid #333;
+                  border-radius: 4px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: flex-end;
+                  padding-right: 4px;
+                  background-color: #fff;
+            }
+      </style>
+</head>
+
+<body>
+      <div class="phone">
+            <div class="screen">
+                  <div class="battery-Number" id="batteryNumber"></div>
+                  <div class="battery">
+                        <div class="battery-level" id="batteryLevel"></div>
+                  </div>
+                  <div class="app-grid">
+                        <!-- Tạo các ứng dụng -->
+                        <div class="app" onclick="alert('Ứng dụng 1')"></div>
+                        <div class="app" onclick="alert('Ứng dụng 2')"></div>
+                        <div class="app" onclick="alert('Ứng dụng 3')"></div>
+                        <div class="app" onclick="alert('Ứng dụng 4')"></div>
+                        <div class="app" onclick="alert('Ứng dụng 5')"></div>
+                        <div class="app" onclick="alert('Ứng dụng 6')"></div>
+                  </div>
+            </div>
+            <div class="power-button"></div>
+      </div>
+      <script>
+            const batteryLevel = document.getElementById('batteryLevel');
+            const batteryNumber = document.getElementById('batteryNumber')
+
+
+
+
+
+
+
+
+
+            // mức pin
+            function setBatteryLevel(level) {
+                  batteryLevel.style.width = `${level}%`;
+                  if (level > 50) {
+                        batteryLevel.style.backgroundColor = 'green';
+                  } else if (level > 20) {
+                        batteryLevel.style.backgroundColor = 'orange';
+                  } else {
+                        batteryLevel.style.backgroundColor = 'red';
+                  }
+                  batteryNumber.innerHTML = level;
+            }
+
+            // Ví dụ: Đặt mức pin là 75%
+            setBatteryLevel(100);
+
+      </script>
+</body>
+
+</html>

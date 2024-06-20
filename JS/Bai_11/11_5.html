@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+</head>
+
+<body>
+      <div id="MyABC">heheheh</div>
+      <canvas id="DemoCanvas" width="500" height="300"></canvas>
+      <div id="abc1"></div>
+      <div id="abc2"></div>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js">
+            // var canvas = document.getElementById("DemoCanvas");
+            // let rectangle = function (a, b, c) {
+            //       this.chieuDai = a;
+            //       this.chieuRong = b;
+
+            //       if (canvas.getContext) {
+            //             var ctx = canvas.getContext('2d');
+            //             ctx.lineWidth = "3";
+            //             ctx.strokeStyle = "red";
+            //             ctx.strokeRect(5, 5, this.chieuDai, this.chieuRong);
+            //       };
+
+            //       this.getDienTich = function () {
+            //             return this.chieuDai * this.chieuRong;
+            //       }
+            //       this.getChuVi = function () {
+            //             return 2 * (this.chieuDai + this.chieuRong);
+            //       }
+            // }
+            // let dulieu = new rectangle(100, 90, 0);
+            // console.log(dulieu.getDienTich())
+            // document.getElementById('abc1').innerHTML = 'dien tich hinh chu nhat la : ' + dulieu.getDienTich();
+            // document.getElementById('abc2').innerHTML = 'chu vi hinh chu nhat  la ' + dulieu.getChuVi()
+
+            $(document).ready(function () {
+                  $("#MyABC").hide();
+                  $("#MyABC").fadeIn(2000);
+                  $("#MyABC").slideUp();
+                  $("#MyABC").slideDown();
+            });
+
+      </script>
+</body>
+
+</html>
