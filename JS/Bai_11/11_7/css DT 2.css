@@ -1,0 +1,241 @@
+/* Định dạng cho toàn bộ trang */
+body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      z-index: 1;
+}
+
+/* Khung điện thoại */
+.phone {
+      width: 350px;
+      height: 700px;
+      border: 12px solid #333;
+      border-radius: 36px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      background-color: #000;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+}
+
+/* Màn hình điện thoại */
+.screen {
+      width: 320px;
+      height: 620px;
+      background-color: #fff;
+      margin: 20px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      z-index: 3;
+}
+
+
+/* Nút nguồn */
+.power-button1 {
+      position: absolute;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      /* background-color: red; */
+      right: 150px;
+      top: 650px;
+      border-radius: 4px;
+      z-index: 9;
+      /* Đảm bảo nút nguồn hiển thị trên cùng */
+}
+
+.power-button {
+      /* background-color: #04AA6D; */
+      /* Green */
+      border: none;
+      /* color: white; */
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0px;
+      margin: 10px 2px;
+      cursor: pointer;
+      position: absolute;
+      z-index: 9;
+      right: 150px;
+      top: 640px;
+      border-radius: 50%;
+}
+
+/* Biểu tượng pin */
+.battery {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 50px;
+      height: 20px;
+      border: 2px solid #333;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 4px;
+      background-color: #fff;
+}
+
+.battery-Number {
+      position: absolute;
+      top: 10px;
+      right: 70px;
+      width: 40px;
+      height: 20px;
+      border: 2px solid #333;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 4px;
+      background-color: #fff;
+}
+
+.battery-Name {
+      position: absolute;
+      top: 10px;
+      right: 200px;
+      width: 100px;
+      height: 20px;
+      border: 2px solid #333;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 4px;
+      background-color: #fff;
+}
+
+.battery::before {
+      content: '';
+      width: 4px;
+      height: 10px;
+      background-color: #333;
+      border-radius: 2px;
+      margin-left: 2px;
+}
+
+.battery-level {
+      width: 40px;
+      height: 16px;
+      background-color: green;
+      border-radius: 2px;
+}
+
+/* Mô phỏng ứng dụng trên màn hình */
+.app {
+      text-align: center;
+      width: 60px;
+      height: 60px;
+      background-color: #00aaff;
+      margin: 10px;
+      border-radius: 12px;
+      display: inline-block;
+      cursor: pointer;
+      transition: transform 0.2s;
+}
+
+
+.app:active {
+      transform: scale(0.9);
+}
+
+/* Lưới ứng dụng */
+.app-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-top: 80px;
+}
+
+/* Giao diện ứng dụng tin nhắn */
+.messages-app {
+      display: none;
+      flex-direction: column;
+      height: 100%;
+      background-color: #e0e0e0;
+      padding: 10px;
+}
+
+.messages-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+      margin-bottom: 10px;
+}
+
+.messages {
+      flex: 1;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: #f9f9f9;
+}
+
+.message {
+      background-color: #00aaff;
+      color: white;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 5px 0;
+      max-width: 92%;
+      word-wrap: break-word;
+}
+
+.message.sent {
+      align-self: flex-end;
+      background-color: #007bff;
+}
+
+.input-area {
+      display: flex;
+}
+
+.input-area input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+}
+
+.input-area button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 10px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+}
+
+.input-area button:hover {
+      background-color: #0056b3;
+}
+
+.close-button {
+      padding: 5px 10px;
+      background-color: #ff4c4c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 12px;
+}
+
+.close-button:hover {
+      background-color: #e60000;
+}

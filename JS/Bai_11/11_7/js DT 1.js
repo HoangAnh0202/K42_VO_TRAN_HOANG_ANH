@@ -59,9 +59,11 @@ for (let i = 0; i < mesInputArr.length; i++) {
 
 function sendMessage() {
       const message = input.value.trim();
-      mesInputArr.push(input.value)
 
-      if (message) {
+
+      if (message != '') {
+            mesInputArr.push(input.value)
+
             // Tạo một phần tử tin nhắn mới
             const messageElement = document.createElement('div');
             messageElement.classList.add('message', 'sent');
@@ -84,5 +86,3 @@ function saveToStorage(key, value) {
 function getFromStorage(key) {
       return JSON.parse(localStorage.getItem(key))
 }
-
-
